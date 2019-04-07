@@ -6,6 +6,10 @@
   "scripts": {
     "test": "make test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auryc-inc/analytics.js-integration-auryc.git"
+  },
   "keywords": [
     "analytics.js",
     "analytics.js-integration",
