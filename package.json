@@ -1,5 +1,5 @@
 {
-  "name": "@auryc-inc/analytics.js-integration-auryc",
+  "name": "@auryc/analytics.js-integration-auryc",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -16,7 +16,7 @@
     "segment",
     "auryc"
   ],
-  "author": "Auryc (contactus@auryc.com)",
+  "author": "auryc(npm@auryc.com)",
   "license": "MIT",
   "dependencies": {
     "@ndhoule/foldl": "^2.0.1",
