@@ -1,5 +1,5 @@
 {
-  "name": "integration-auryc",
+  "name": "@auryc/analytics.js-integration-auryc",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
