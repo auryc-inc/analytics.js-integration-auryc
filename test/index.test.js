@@ -95,8 +95,6 @@ describe('Auryc Unit', function () {
         });
 
         it('should send custom array props', function() {
-          // analytics.identify('userid', { arr: [1, 2 ,3], arrObj: [{test1: 123}]});
-          // analytics.called(window.auryc.addUserProperties, {arr: [1, 2 ,3], arrObj: '[{\"test1\":123}]'});
           analytics.identify('userid', { arr: [1, 2 ,3], arrObj: [{'key':{'innerkey':'value'}}]});
           analytics.called(window.auryc.addUserProperties, {arr: [1, 2 ,3], arrObj: '[{\"key\":{\"innerkey\":\"value\"}}]'});
         });
