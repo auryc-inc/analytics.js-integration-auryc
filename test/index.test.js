@@ -125,6 +125,15 @@ describe('Auryc Unit', function () {
           analytics.track('test_event', { arrObj: {test1: {test2: 'nested'} } });
           analytics.called(window.auryc.track, 'test_event', {  "arrObj.test1.test2": "nested" });
         });
+
+        it('should send track complex object properties case 2', function() {
+          analytics.track('Completed Order Test', {"orderId":"6000315","total":"80.00","revenue":"60.00","shipping":"0.00",
+          "tax":"0.00","discount":"20.00","coupon":"AURYCPARTNER25","currency":"USD",
+          "products":[{"id":"48","name":"Longsleeve","sku":"","price":"80.00","quantity":1,"category":"T-shirts"}]});
+          analytics.called(window.auryc.track, 'Completed Order Test', {"orderId":"6000315","total":"80.00","revenue":"60.00",
+          "shipping":"0.00","tax":"0.00","discount":"20.00","coupon":"AURYCPARTNER25","currency":"USD",
+          products: '[{\"id\":\"48\",\"name\":\"Longsleeve\",\"sku\":\"\",\"price\":\"80.00\",\"quantity\":1,\"category\":\"T-shirts\"}]'});
+        });
       });
     });
 })
