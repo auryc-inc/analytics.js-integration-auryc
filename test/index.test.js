@@ -135,5 +135,35 @@ describe('Auryc Unit', function () {
           products: '[{\"id\":\"48\",\"name\":\"Longsleeve\",\"sku\":\"\",\"price\":\"80.00\",\"quantity\":1,\"category\":\"T-shirts\"}]'});
         });
       });
+
+      describe('#group', function() {
+        beforeEach(function() {
+          analytics.stub(window.auryc, 'identify');
+          analytics.stub(window.auryc, 'addUserProperties');
+        });
+  
+        it('should send an id', function() {
+          analytics.group('123456');
+          analytics.called(window.auryc.addUserProperties, {groupId: '123456'});
+        });
+
+        it('should send group traits', function() {
+          analytics.group("0e8c78ea9d97a7b8185e8632", {
+            name: "Initech",
+            industry: "Technology",
+            employees: 329,
+            plan: "enterprise",
+            "total billed": 830
+          });          
+          analytics.called(window.auryc.addUserProperties, 
+            {groupId: '0e8c78ea9d97a7b8185e8632',
+            group_name: "Initech",
+            group_industry: "Technology",
+            group_employees: 329,
+            group_plan: "enterprise",
+            "group_total billed": 830}
+            );
+        });
+      });
     });
 })
