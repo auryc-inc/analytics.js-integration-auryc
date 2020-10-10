@@ -113,17 +113,17 @@ describe('Auryc Unit', function () {
   
         it('should send track event name and properties', function() {
           analytics.track('test_event', { prop1: '123', prop2: 456, prop3: [123, 456], prop4: true });
-          analytics.called(window.auryc.track, 'test_event', { prop1: '123', prop2: 456, prop3: [123, 456], prop4: true });
+          analytics.called(window.auryc.track, 'test_event', { prop1: '123', prop2: 456, prop3: [123, 456], prop4: true, auryc_integration: 'segment' });
         });
 
         it('should send track complex array properties', function() {
           analytics.track('test_event', { arrObj: [{test1: 123}] });
-          analytics.called(window.auryc.track, 'test_event', {  arrObj: '[{\"test1\":123}]' });
+          analytics.called(window.auryc.track, 'test_event', {  arrObj: '[{\"test1\":123}]', auryc_integration: 'segment' });
         });
 
         it('should send track complex object properties', function() {
           analytics.track('test_event', { arrObj: {test1: {test2: 'nested'} } });
-          analytics.called(window.auryc.track, 'test_event', {  "arrObj.test1.test2": "nested" });
+          analytics.called(window.auryc.track, 'test_event', {  "arrObj.test1.test2": "nested", auryc_integration: 'segment' });
         });
 
         it('should send track complex object properties case 2', function() {
@@ -132,7 +132,8 @@ describe('Auryc Unit', function () {
           "products":[{"id":"48","name":"Longsleeve","sku":"","price":"80.00","quantity":1,"category":"T-shirts"}]});
           analytics.called(window.auryc.track, 'Completed Order Test', {"orderId":"6000315","total":"80.00","revenue":"60.00",
           "shipping":"0.00","tax":"0.00","discount":"20.00","coupon":"AURYCPARTNER25","currency":"USD",
-          products: '[{\"id\":\"48\",\"name\":\"Longsleeve\",\"sku\":\"\",\"price\":\"80.00\",\"quantity\":1,\"category\":\"T-shirts\"}]'});
+          products: '[{\"id\":\"48\",\"name\":\"Longsleeve\",\"sku\":\"\",\"price\":\"80.00\",\"quantity\":1,\"category\":\"T-shirts\"}]',
+          auryc_integration: 'segment'});
         });
       });
 
