@@ -135,6 +135,11 @@ describe('Auryc Unit', function () {
           products: '[{\"id\":\"48\",\"name\":\"Longsleeve\",\"sku\":\"\",\"price\":\"80.00\",\"quantity\":1,\"category\":\"T-shirts\"}]',
           auryc_integration: 'segment'});
         });
+
+        it('should handle null properties', function() {
+          analytics.track('test_event', { nullProp: null, prop1: '123', prop2: 456, prop3: [123, 456], prop4: true });
+          analytics.called(window.auryc.track, 'test_event', { prop1: '123', prop2: 456, prop3: [123, 456], prop4: true, auryc_integration: 'segment' });
+        });        
       });
 
       describe('#group', function() {
