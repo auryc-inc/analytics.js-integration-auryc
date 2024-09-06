@@ -19,7 +19,7 @@
   "author": "auryc(npm@auryc.com)",
   "license": "MIT",
   "dependencies": {
-    "@segment/analytics.js-integration": "^2.1.0",
+    "@segment/analytics.js-integration": "^3.3.3",
     "is": "^3.1.0",
     "@ndhoule/extend": "^2.0.0",
     "@segment/analytics.js-core": "^3.0.0",
